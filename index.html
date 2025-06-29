@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularMedia() {
+            let soma = 0;
+            let quantidade = parseInt(prompt("Quantos números você quer calcular a média?"));
+
+            if (isNaN(quantidade) || quantidade <= 0) {
+                document.getElementById('resultado').innerText = "Por favor, digite uma quantidade válida.";
+                return;
+            }
+
+            for (let i = 0; i < quantidade; i++) {
+                let numero = parseFloat(prompt(`Digite o número ${i + 1}:`));
+
+                if (isNaN(numero)) {
+                    document.getElementById('resultado').innerText = "Entrada inválida. Por favor, digite apenas números.";
+                    return;
+                }
+                soma += numero;
+            }
+
+            let media = soma / quantidade;
+            document.getElementById('resultado').innerText = `A média é: ${media.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>
